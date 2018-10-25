@@ -19,7 +19,7 @@ Add this configuration to `config/logging.php` file
 'teams' => [
     'driver'    => 'custom',
     'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
-    'level'     => 'error',
+    'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
 ],
 ```
@@ -28,7 +28,7 @@ or simply add name to specify different project name for each connector.
 'teams' => [
     'driver'    => 'custom',
     'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
-    'level'     => 'error',
+    'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
     'name'      => 'Dummy Project'
 ],
@@ -61,6 +61,33 @@ You can also add `teams` to the default `stack` channel so all errors are automa
     ],
 ],
 ```
+
+## Results
+Here are some results of notifications sent to microsoft teams channel.
+
+- Debug Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-1debug.png)
+
+- Info Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-2info.png)
+
+- Notice Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-3notice.png)
+
+- Warning Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-4warning.png)
+
+- Error Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-5error.png)
+
+- Critical Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-6critical.png)
+
+- Alert Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-7alert.png)
+
+- Emergency Notifications
+![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-8emergency.png)
 
 ## License
 
