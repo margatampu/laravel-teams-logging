@@ -1,6 +1,6 @@
 <?php
 
-namespace SabarTampubolon\LaravelTeamsLogging;
+namespace MargaTampu\LaravelTeamsLogging;
 
 use Monolog\Logger as MonologLogger;
 
