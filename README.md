@@ -1,5 +1,9 @@
 # laravel-teams-logging
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/margatampu/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/margatampu/laravel-teams-logging)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/margatampu/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/margatampu/laravel-teams-logging)
+
 Laravel handler to sending messages to Microsoft Teams using the Incoming Webhook connector.
 
 ## Installation
@@ -92,3 +96,4 @@ Here are some results of notifications sent to microsoft teams channel.
 ## License
 
 This laravel-teams-logging package is available under the MIT license. See the LICENSE file for more info.
+
