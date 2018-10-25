@@ -65,28 +65,28 @@ You can also add `teams` to the default `stack` channel so all errors are automa
 ## Results
 Here are some results of notifications sent to microsoft teams channel.
 
-- Debug Notifications
+- Debug log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-1debug.png)
 
-- Info Notifications
+- Info log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-2info.png)
 
-- Notice Notifications
+- Notice log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-3notice.png)
 
-- Warning Notifications
+- Warning log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-4warning.png)
 
-- Error Notifications
+- Error log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-5error.png)
 
-- Critical Notifications
+- Critical log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-6critical.png)
 
-- Alert Notifications
+- Alert log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-7alert.png)
 
-- Emergency Notifications
+- Emergency log in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-8emergency.png)
 
 ## License
