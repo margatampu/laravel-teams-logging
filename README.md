@@ -42,6 +42,8 @@ or simply add name to specify different project name for each connector.
 
 There are 2 available styles for microsoft teams message, using simple and card. You can see card style in results style which is difference from simple style.
 
+After added configs to your `config/logging.php` file, add `INCOMING_WEBHOOK_URL` variable to your `.env` file with connector url from your microsoft teams connector. Please read [microsoft teams](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/connectors/connectors-using) document to find your connector url.
+
 ## Usage
 To send a simple error message to teams channel, you kindly use script below:
 
