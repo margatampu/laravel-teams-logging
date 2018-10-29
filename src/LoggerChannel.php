@@ -13,6 +13,6 @@ class LoggerChannel
      */
     public function __invoke(array $config)
     {
-        return new Logger($config['url'], $config['level'] ?? MonologLogger::DEBUG, $config['name'] ?? null);
+        return new Logger($config['url'], $config['level'] ?? MonologLogger::DEBUG, $config['style'] ?? 'simple', $config['name'] ?? null);
     }
 }

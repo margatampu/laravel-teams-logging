@@ -25,6 +25,7 @@ Add this configuration to `config/logging.php` file
     'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
     'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
+    'style'     => 'simple',    // Available style is 'simple' and 'card', default is 'simple'
 ],
 ```
 or simply add name to specify different project name for each connector.
@@ -34,9 +35,12 @@ or simply add name to specify different project name for each connector.
     'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
     'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
+    'style'     => 'simple',    // Available style is 'simple' and 'card', default is 'simple'
     'name'      => 'Dummy Project'
 ],
 ```
+
+There are 2 available styles for microsoft teams message, using simple and card. You can see card style in results style which is difference from simple style.
 
 ## Usage
 To send a simple error message to teams channel, you kindly use script below:
@@ -55,6 +59,8 @@ Log::channel('teams')->error('Error message', [
 ]);
 ```
 
+When using simple style, log context will ignore from message.
+
 You can also add `teams` to the default `stack` channel so all errors are automatically send to the `teams` channel.
 
 ```php
@@ -67,7 +73,7 @@ You can also add `teams` to the default `stack` channel so all errors are automa
 ```
 
 ## Results
-Here are some results of notifications sent to microsoft teams channel.
+Here are some results of notifications sent to microsoft teams channel using card style.
 
 - Debug log preview in microsoft teams channel
 ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-1debug.png)
