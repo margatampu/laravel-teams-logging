@@ -31,6 +31,45 @@ class LoggerHandler extends AbstractProcessingHandler
         $this->name  = $name;
     }
 
+    // /**
+    //  * @param array $record
+    //  *
+    //  * @return LoggerMessage
+    //  */
+    // protected function getMessage(array $record)
+    // {
+    //     $loggerColour = new LoggerColour($record['level_name']);
+
+    //     if ($this->style == 'card') {
+    //         // Include context as facts to send to microsoft teams
+    //         // Added Sent Date Info
+    //         $facts = array_merge($record['context'], [[
+    //             'name'  => 'Sent Date',
+    //             'value' => date('D, M d Y H:i:s e'),
+    //         ]]);
+
+    //         return new LoggerMessage([
+    //             'summary'    => $record['level_name'] . ($this->name ? ': ' . $this->name : ''),
+    //             'themeColor' => (string) $loggerColour,
+    //             'sections'   => [
+    //                 [
+    //                     'activityTitle'    => $this->name,
+    //                     'activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $record['level_name'] . '</span>',
+    //                     'activityText'     => $record['message'],
+    //                     'activityImage'    => (string) new LoggerAvatar($record['level_name'], $loggerColour),
+    //                     'facts'            => $facts,
+    //                     'markdown'         => true
+    //                 ]
+    //             ]
+    //         ]);
+    //     } else {
+    //         return new LoggerMessage([
+    //             'text'       => ($this->name ? $this->name . ' - ' : '') . '<span style="color:#' . (string) $loggerColour . '">' . $record['level_name'] . '</span>: ' . $record['message'],
+    //             'themeColor' => (string) $loggerColour,
+    //         ]);
+    //     }
+    // }
+
     /**
      * @param array $record
      *
@@ -38,8 +77,6 @@ class LoggerHandler extends AbstractProcessingHandler
      */
     protected function getMessage(array $record)
     {
-        $loggerColour = new LoggerColour($record['level_name']);
-
         if ($this->style == 'card') {
             // Include context as facts to send to microsoft teams
             // Added Sent Date Info
@@ -48,26 +85,53 @@ class LoggerHandler extends AbstractProcessingHandler
                 'value' => date('D, M d Y H:i:s e'),
             ]]);
 
-            return new LoggerMessage([
-                'summary'    => $record['level_name'] . ($this->name ? ': ' . $this->name : ''),
-                'themeColor' => (string) $loggerColour,
-                'sections'   => [
-                    [
-                        'activityTitle'    => $this->name,
-                        'activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $record['level_name'] . '</span>',
-                        'activityText'     => $record['message'],
-                        'activityImage'    => (string) new LoggerAvatar($record['level_name'], $loggerColour),
-                        'facts'            => $facts,
-                        'markdown'         => true
-                    ]
-                ]
-            ]);
+            return $this->useCardStyling($record['level_name'], $record['message'], $facts);
         } else {
-            return new LoggerMessage([
-                'text'       => ($this->name ? $this->name . ' - ' : '') . '<span style="color:#' . (string) $loggerColour . '">' . $record['level_name'] . '</span>: ' . $record['message'],
-                'themeColor' => (string) $loggerColour,
-            ]);
+            return $this->useSimpleStyling($record['level_name'], $record['message']);
         }
+    }
+
+    /**
+     * Styling message as simple message
+     *
+     * @param String $name
+     * @param String $message
+     * @param array  $facts
+     */
+    public function useCardStyling($name, $message, $facts)
+    {
+        $loggerColour = new LoggerColour($name);
+
+        return new LoggerMessage([
+            'summary'    => $name . ($this->name ? ': ' . $this->name : ''),
+            'themeColor' => (string) $loggerColour,
+            'sections'   => [
+                [
+                    'activityTitle'    => $this->name,
+                    'activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $name . '</span>',
+                    'activityText'     => $message,
+                    'activityImage'    => (string) new LoggerAvatar($name, $loggerColour),
+                    'facts'            => $facts,
+                    'markdown'         => true
+                ]
+            ]
+        ]);
+    }
+
+    /**
+     * Styling message as simple message
+     *
+     * @param String $name
+     * @param String $message
+     */
+    public function useSimpleStyling($name, $message)
+    {
+        $loggerColour = new LoggerColour($name);
+
+        return new LoggerMessage([
+            'text'       => ($this->name ? $this->name . ' - ' : '') . '<span style="color:#' . (string) $loggerColour . '">' . $name . '</span>: ' . $message,
+            'themeColor' => (string) $loggerColour,
+        ]);
     }
 
     /**
