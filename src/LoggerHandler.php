@@ -67,14 +67,18 @@ class LoggerHandler extends AbstractProcessingHandler
             'summary'    => $name . ($this->name ? ': ' . $this->name : ''),
             'themeColor' => (string) $loggerColour,
             'sections'   => [
-                [
+                array_merge(config('teams.show_avatars', true) ? [
                     'activityTitle'    => $this->name,
-                    'activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $name . '</span>',
                     'activityText'     => $message,
-                    'activityImage'    => (string) new LoggerAvatar($name, $loggerColour),
+                    'activityImage'    => (string) new LoggerAvatar($name),
                     'facts'            => $facts,
                     'markdown'         => true
-                ]
+                ] : [
+                    'activityTitle'    => $this->name,
+                    'activityText'     => $message,
+                    'facts'            => $facts,
+                    'markdown'         => true
+                ], config('teams.show_type', true) ? ['activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $name . '</span>',] : [])
             ]
         ]);
     }

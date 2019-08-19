@@ -29,6 +29,6 @@ class LoggerColour
      */
     public function __toString()
     {
-        return constant('self::' . $this->const);
+        return config('teams.colours.' . strtolower($this->const), constant('self::' . $this->const));
     }
 }

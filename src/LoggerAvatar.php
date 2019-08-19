@@ -4,31 +4,24 @@ namespace MargaTampu\LaravelTeamsLogging;
 
 class LoggerAvatar
 {
-    const EMERGENCY = 'eyes7/nose7/mouth7';
-    const ALERT     = 'eyes7/nose7/mouth6';
-    const CRITICAL  = 'eyes7/nose7/mouth5';
-    const ERROR     = 'eyes7/nose7/mouth9';
-    const WARNING   = 'eyes6/nose7/mouth10';
-    const NOTICE    = 'eyes6/nose7/mouth3';
-    const INFO      = 'eyes5/nose7/mouth1';
-    const DEBUG     = 'eyes5/nose7/mouth1';
+    const EMERGENCY = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth7/721C24';
+    const ALERT     = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth6/721C24';
+    const CRITICAL  = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth5/721C24';
+    const ERROR     = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth9/721C24';
+    const WARNING   = 'https://api.adorable.io/avatars/face/eyes6/nose7/mouth10/721C24';
+    const NOTICE    = 'https://api.adorable.io/avatars/face/eyes6/nose7/mouth3/721C24';
+    const INFO      = 'https://api.adorable.io/avatars/face/eyes5/nose7/mouth1/721C24';
+    const DEBUG     = 'https://api.adorable.io/avatars/face/eyes5/nose7/mouth1/721C24';
 
     /** @var string */
-    private $url = 'https://api.adorable.io/avatars/face';
-
-    /** @var string */
-    private $cont;
-
-    /** @var LoggerColour */
-    private $loggerColour;
+    private $const;
 
     /**
-     * @param $cont
+     * @param $const
      */
-    public function __construct($cont = 'DEBUG', LoggerColour $loggerColour)
+    public function __construct($const = 'DEBUG')
     {
-        $this->cont         = $cont;
-        $this->loggerColour = $loggerColour;
+        $this->const = $const;
     }
 
     /**
@@ -36,6 +29,6 @@ class LoggerAvatar
      */
     public function __toString()
     {
-        return $this->url . '/' . constant('self::' . $this->cont) . '/' . (string) $this->loggerColour;
+        return config('teams.avatars.' . strtolower($this->const), constant('self::' . $this->const));
     }
 }
