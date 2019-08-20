@@ -19,5 +19,12 @@
         "psr-4": {
             "MargaTampu\\LaravelTeamsLogging\\": "src/"
         }
-    }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MargaTampu\\LaravelTeamsLogging\\LoggerServiceProvider"
+            ]
+        }
+    },
 }
