@@ -2,6 +2,7 @@
 
 namespace MargaTampu\LaravelTeamsLogging;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
 
 class LoggerServiceProvider extends ServiceProvider
@@ -51,7 +52,7 @@ class LoggerServiceProvider extends ServiceProvider
         }
         $this->app      = $app;
         $this->version  = $app->version();
-        $this->is_lumen = str_contains($this->version, 'Lumen');
+        $this->is_lumen = Str::contains($this->version, 'Lumen');
     }
 
     /**
