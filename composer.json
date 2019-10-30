@@ -1,30 +1,28 @@
 {
-    "name": "margatampu/laravel-teams-logging",
-    "description": "Laravel handler to sending messages to Microsoft Teams using the Incoming Webhook connector",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Sabar Tampubolon",
-            "email": "sabartampubolon@gmail.com"
-        }
-    ],
-    "require": {
-        "php": "^7.0",
-        "monolog/monolog": "^1.23"
-    },
-    "require-dev": {
-        "ext-curl": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "MargaTampu\\LaravelTeamsLogging\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "MargaTampu\\LaravelTeamsLogging\\LoggerServiceProvider"
-            ]
-        }
-    }
+	"name": "margatampu/laravel-teams-logging",
+	"description": "Laravel handler to sending messages to Microsoft Teams using the Incoming Webhook connector",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Sabar Tampubolon",
+			"email": "sabartampubolon@gmail.com"
+		}
+	],
+	"require": {
+		"php": "^7.0",
+		"monolog/monolog": "^2.0.*"
+	},
+	"require-dev": {
+		"ext-curl": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"MargaTampu\\LaravelTeamsLogging\\": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [ "MargaTampu\\LaravelTeamsLogging\\LoggerServiceProvider" ]
+		}
+	}
 }
