@@ -22,7 +22,7 @@ class LoggerHandler extends AbstractProcessingHandler
      * @param string $name
      * @param bool $bubble
      */
-    public function __construct($url, $level = Logger::DEBUG, $style, $name, $bubble = true)
+    public function __construct($url, $level = MonologLogger::DEBUG, $style = 'simple', $name = 'Default', $bubble = true)
     {
         parent::__construct($level, $bubble);
 
