@@ -11,7 +11,7 @@ class Logger extends MonologLogger
      * @param int $level
      * @param bool $bubble
      */
-    public function __construct($url, $level = MonologLogger::DEBUG, $style, $name, $bubble = true)
+    public function __construct($url, $level = MonologLogger::DEBUG, $style = 'simple', $name = 'Default', $bubble = true)
     {
         parent::__construct('teams-logger');
 
