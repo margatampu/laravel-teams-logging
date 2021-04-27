@@ -41,7 +41,13 @@ class LoggerHandler extends AbstractProcessingHandler
         if ($this->style == 'card') {
             // Include context as facts to send to microsoft teams
             // Added Sent Date Info
-            $facts = array_merge($record['context'], [[
+
+            $facts = [];
+            foreach($record['context'] as $name => $value){
+                $facts[] = ['name' => $name, 'value' => $value];
+            }
+
+            $facts = array_merge($facts, [[
                 'name'  => 'Sent Date',
                 'value' => date('D, M d Y H:i:s e'),
             ]]);
@@ -63,24 +69,26 @@ class LoggerHandler extends AbstractProcessingHandler
     {
         $loggerColour = new LoggerColour($name);
 
-        return new LoggerMessage([
+        $loggerMessage = new LoggerMessage([
             'summary'    => $name . ($this->name ? ': ' . $this->name : ''),
             'themeColor' => (string) $loggerColour,
             'sections'   => [
                 array_merge(config('teams.show_avatars', true) ? [
                     'activityTitle'    => $this->name,
-                    'activityText'     => $message,
+                    'activitySubtitle' => $message,
                     'activityImage'    => (string) new LoggerAvatar($name),
                     'facts'            => $facts,
                     'markdown'         => true
                 ] : [
                     'activityTitle'    => $this->name,
-                    'activityText'     => $message,
+                    'activitySubtitle' => $message,
                     'facts'            => $facts,
                     'markdown'         => true
-                ], config('teams.show_type', true) ? ['activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $name . '</span>',] : [])
+                ], config('teams.show_type', true) ? ['activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $message . '</span>',] : [])
             ]
         ]);
+
+        return $loggerMessage->jsonSerialize();
     }
 
     /**
