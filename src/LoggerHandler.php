@@ -44,7 +44,7 @@ class LoggerHandler extends AbstractProcessingHandler
 
             $facts = [];
             foreach($record['context'] as $name => $value){
-                $facts[] = ['name' => $name, 'value' => $value];
+                $facts[] = ['name' => $name, 'value' => (string) $value];
             }
 
             $facts = array_merge($facts, [[
