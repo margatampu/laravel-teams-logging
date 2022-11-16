@@ -134,7 +134,7 @@ Here are some results of notifications sent to microsoft teams channel using car
 
 
 AVATARS:
-- EMERGENCY: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/721C24)
+- EMERGENCY: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/721C24.png)
 - ALERT: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/AF2432.png)
 - CRITICAL ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FF0000.png)
 - ERROR: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FF8000.png)
