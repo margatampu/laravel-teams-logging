@@ -4,14 +4,14 @@ namespace MargaTampu\LaravelTeamsLogging;
 
 class LoggerAvatar
 {
-    const EMERGENCY = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth7/721C24';
-    const ALERT     = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth6/721C24';
-    const CRITICAL  = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth5/721C24';
-    const ERROR     = 'https://api.adorable.io/avatars/face/eyes7/nose7/mouth9/721C24';
-    const WARNING   = 'https://api.adorable.io/avatars/face/eyes6/nose7/mouth10/721C24';
-    const NOTICE    = 'https://api.adorable.io/avatars/face/eyes6/nose7/mouth3/721C24';
-    const INFO      = 'https://api.adorable.io/avatars/face/eyes5/nose7/mouth1/721C24';
-    const DEBUG     = 'https://api.adorable.io/avatars/face/eyes5/nose7/mouth1/721C24';
+    const EMERGENCY = 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth7/721C24';
+    const ALERT     = 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth6/AF2432';
+    const CRITICAL  = 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth5/FF0000';
+    const ERROR     = 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth9/FF8000';
+    const WARNING   = 'https://adorable-avatars.broken.services/face/eyes6/nose7/mouth10/FFEEBA';
+    const NOTICE    = 'https://adorable-avatars.broken.services/face/eyes6/nose7/mouth3/B8DAFF';
+    const INFO      = 'https://adorable-avatars.broken.services/face/eyes5/nose7/mouth1/BEE5EB';
+    const DEBUG     = 'https://adorable-avatars.broken.services/face/eyes5/nose7/mouth1/C3E6CB';
 
     /** @var string */
     private $const;
