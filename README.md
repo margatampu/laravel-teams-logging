@@ -21,19 +21,19 @@ Package tested and worked with Laravel and Lumen framework (5.7+).
 **Laravel**: After installation using composer finishes up, you'll have to add the following line to your `config/app.php`:
 
 ```php
-MargaTampu\LaravelTeamsLogging\LoggerServiceProvider::class
+Edsonjorgef1\LaravelTeamsLogging\LoggerServiceProvider::class
 ```
 
 **Lumen**: For Lumen, you'll have to add the following line to your `bootstrap/app.php`:
 
 ```php
-$app->register(MargaTampu\LaravelTeamsLogging\LoggerServiceProvider::class);
+$app->register(Edsonjorgef1\LaravelTeamsLogging\LoggerServiceProvider::class);
 ```
 
 **Laravel**: Then copy `teams` config file from laravel-teams-logging to your config folder:
 
 ```bash
-$ php artisan vendor:publish --provider="MargaTampu\LaravelTeamsLogging\LoggerServiceProvider"
+$ php artisan vendor:publish --provider="Edsonjorgef1\LaravelTeamsLogging\LoggerServiceProvider"
 ```
 
 **Lumen**: For Lumen, you need to copy file manually to your config folder and enable it in `bootstrap/app.php`:
@@ -49,7 +49,7 @@ Add this configuration to `config/logging.php` file
 ```php
 'teams' => [
     'driver'    => 'custom',
-    'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
+    'via'       => \Edsonjorgef1\LaravelTeamsLogging\LoggerChannel::class,
     'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
     'style'     => 'simple',    // Available style is 'simple' and 'card', default is 'simple'
@@ -61,7 +61,7 @@ or simply add name to specify different project name for each connector.
 ```php
 'teams' => [
     'driver'    => 'custom',
-    'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
+    'via'       => \Edsonjorgef1\LaravelTeamsLogging\LoggerChannel::class,
     'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
     'style'     => 'simple',    // Available style is 'simple' and 'card', default is 'simple'
