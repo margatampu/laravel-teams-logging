@@ -11,7 +11,7 @@ Laravel handler to sending messages to Microsoft Teams using the Incoming Webhoo
 Require this package with composer.
 
 ```bash
-$ composer require margatampu/laravel-teams-logging
+$ composer require edsonjorgef1/laravel-teams-logging
 ```
 
 ## Integration
