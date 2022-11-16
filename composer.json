@@ -1,11 +1,11 @@
 {
 	"name": "edsonjorgef1/laravel-teams-logging",
-	"description": "Laravel handler to sending messages to Microsoft Teams using the Incoming Webhook connector",
+	"description": "Laravel package capable to send messages to Microsoft Teams using the Incoming Webhook connector. It supports to Laravel 8.x",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Sabar Tampubolon",
-			"email": "sabartampubolon@gmail.com"
+			"name": "Edson Jorge Francisco",
+			"email": "edsonjorgef1@gmail.com"
 		}
 	],
 	"require": {
@@ -17,12 +17,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"MargaTampu\\LaravelTeamsLogging\\": "src/"
+			"Edsonjorgef1\\LaravelTeamsLogging\\": "src/"
 		}
 	},
 	"extra": {
 		"laravel": {
-			"providers": [ "MargaTampu\\LaravelTeamsLogging\\LoggerServiceProvider" ]
+			"providers": [ "Edsonjorgef1\\LaravelTeamsLogging\\LoggerServiceProvider" ]
 		}
 	}
 }

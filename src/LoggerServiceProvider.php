@@ -1,6 +1,6 @@
 <?php
 
-namespace MargaTampu\LaravelTeamsLogging;
+namespace Edsonjorgef1\LaravelTeamsLogging;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
@@ -78,6 +78,6 @@ class LoggerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->app->bind('logger', 'MargaTampu\LaravelTeamsLogging\LoggerServiceProvider');
+        // $this->app->bind('logger', 'Edsonjorgef1\LaravelTeamsLogging\LoggerServiceProvider');
     }
 }
