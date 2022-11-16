@@ -1,8 +1,8 @@
 # laravel-teams-logging
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/margatampu/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/margatampu/laravel-teams-logging)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/edsonjorgef1/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/edsonjorgef1/laravel-teams-logging)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/margatampu/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/margatampu/laravel-teams-logging)
+[![Total Downloads](https://img.shields.io/packagist/dt/edsonjorgef1/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/edsonjorgef1/laravel-teams-logging)
 
 Laravel handler to sending messages to Microsoft Teams using the Incoming Webhook connector.
 
@@ -21,19 +21,19 @@ Package tested and worked with Laravel and Lumen framework (5.7+).
 **Laravel**: After installation using composer finishes up, you'll have to add the following line to your `config/app.php`:
 
 ```php
-MargaTampu\LaravelTeamsLogging\LoggerServiceProvider::class
+Edsonjorgef1\LaravelTeamsLogging\LoggerServiceProvider::class
 ```
 
 **Lumen**: For Lumen, you'll have to add the following line to your `bootstrap/app.php`:
 
 ```php
-$app->register(MargaTampu\LaravelTeamsLogging\LoggerServiceProvider::class);
+$app->register(Edsonjorgef1\LaravelTeamsLogging\LoggerServiceProvider::class);
 ```
 
 **Laravel**: Then copy `teams` config file from laravel-teams-logging to your config folder:
 
 ```bash
-$ php artisan vendor:publish --provider="MargaTampu\LaravelTeamsLogging\LoggerServiceProvider"
+$ php artisan vendor:publish --provider="Edsonjorgef1\LaravelTeamsLogging\LoggerServiceProvider"
 ```
 
 **Lumen**: For Lumen, you need to copy file manually to your config folder and enable it in `bootstrap/app.php`:
@@ -49,7 +49,7 @@ Add this configuration to `config/logging.php` file
 ```php
 'teams' => [
     'driver'    => 'custom',
-    'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
+    'via'       => \Edsonjorgef1\LaravelTeamsLogging\LoggerChannel::class,
     'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
     'style'     => 'simple',    // Available style is 'simple' and 'card', default is 'simple'
@@ -61,7 +61,7 @@ or simply add name to specify different project name for each connector.
 ```php
 'teams' => [
     'driver'    => 'custom',
-    'via'       => \MargaTampu\LaravelTeamsLogging\LoggerChannel::class,
+    'via'       => \Edsonjorgef1\LaravelTeamsLogging\LoggerChannel::class,
     'level'     => 'debug',
     'url'       => env('INCOMING_WEBHOOK_URL'),
     'style'     => 'simple',    // Available style is 'simple' and 'card', default is 'simple'
@@ -109,28 +109,28 @@ You can also add `teams` to the default `stack` channel so all errors are automa
 Here are some results of notifications sent to microsoft teams channel using card style.
 
 - Debug log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-1debug.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-1debug.png)
 
 - Info log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-2info.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-2info.png)
 
 - Notice log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-3notice.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-3notice.png)
 
 - Warning log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-4warning.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-4warning.png)
 
 - Error log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-5error.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-5error.png)
 
 - Critical log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-6critical.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-6critical.png)
 
 - Alert log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-7alert.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-7alert.png)
 
 - Emergency log preview in microsoft teams channel
-  ![Screenshot](https://raw.githubusercontent.com/margatampu/laravel-teams-logging/master/assets/ltl-8emergency.png)
+  ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-8emergency.png)
 
 ## License
 
