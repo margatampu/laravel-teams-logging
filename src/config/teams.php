@@ -31,14 +31,14 @@ return [
     |
     */
     'avatars' => [
-         'emergency' => 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth7/721C24',
-         'alert'     => 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth6/AF2432',
-         'critical'  => 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth5/FF0000',
-         'error'     => 'https://adorable-avatars.broken.services/face/eyes7/nose7/mouth9/FF8000',
-         'warning'   => 'https://adorable-avatars.broken.services/face/eyes6/nose7/mouth10/FFEEBA',
-         'notice'    => 'https://adorable-avatars.broken.services/face/eyes6/nose7/mouth3/B8DAFF',
-         'info'      => 'https://adorable-avatars.broken.services/face/eyes5/nose7/mouth1/BEE5EB',
-         'debug'     => 'https://adorable-avatars.broken.services/face/eyes5/nose7/mouth1/C3E6CB',
+         'emergency' => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/721C24.png',
+         'alert'     => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/AF2432.png',
+         'critical'  => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FF0000.png',
+         'error'     => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FF8000.png',
+         'warning'   => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FFEEBA.png',
+         'notice'    => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/B8DAFF.png',
+         'info'      => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/BEE5EB.png',
+         'debug'     => 'https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/C3E6CB.png',
     ],
 
     /*
