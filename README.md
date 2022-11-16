@@ -132,6 +132,18 @@ Here are some results of notifications sent to microsoft teams channel using car
 - Emergency log preview in microsoft teams channel
   ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/master/assets/ltl-8emergency.png)
 
+
+AVATARS:
+- EMERGENCY: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/721C24)
+- ALERT: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/AF2432.png)
+- CRITICAL ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FF0000.png)
+- ERROR: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FF8000.png)
+- WARNING: ![Screenshot]('https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/FFEEBA.png)
+- NOTICE: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/B8DAFF.png)
+- INFO: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/BEE5EB.png)
+- DEBUG: ![Screenshot](https://raw.githubusercontent.com/edsonjorgef1/laravel-teams-logging/dev/assets/avatar/C3E6CB.png)
+
+
 ## License
 
 This laravel-teams-logging package is available under the MIT license. See the LICENSE file for more info.
