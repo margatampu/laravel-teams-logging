@@ -2,7 +2,7 @@
 
 namespace MargaTampu\LaravelTeamsLogging;
 
-use Monolog\Logger;
+use Monolog\Logger as MonologLogger;
 use Monolog\Handler\AbstractProcessingHandler;
 
 class LoggerHandler extends AbstractProcessingHandler
