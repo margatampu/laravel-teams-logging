@@ -24,6 +24,37 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Display Route 
+    |--------------------------------------------------------------------------
+    |
+    | Display route (if available) called which led to the logged notification. Allowed value: false (default) and true
+    |
+    */
+    'show_route' => false,
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display Action (Controller@Method) 
+    |--------------------------------------------------------------------------
+    |
+    | Display controller and method (if available) that led to the logged notification. Allowed value: false (default) and true
+    |
+    */
+    'show_action' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display Error Type
+    |--------------------------------------------------------------------------
+    |
+    | Display error type in teams notification. Allowed value: true (default) and false
+    |
+    */
+    'show_type' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Avatars
     |--------------------------------------------------------------------------
     |

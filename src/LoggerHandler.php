@@ -40,22 +40,40 @@ class LoggerHandler extends AbstractProcessingHandler
     {
         if ($this->style == 'card') {
             // Include context as facts to send to microsoft teams
-            // Added Sent Date Info
 
             $facts = [];
-            foreach($record['context'] as $name => $value){
+
+            // Date
+            $facts[] = [
+                'name'  => 'Sent Date',
+                'value' => date('D, M d Y H:i:s e'),
+            ];
+
+            // Route
+            if (config('teams.show_route', false) && request()) {
+                $facts[] = [
+                    'name'  => 'Route',
+                    'value' => request()->getMethod() . ' : ' . request()->getPathInfo(),
+                ];
+            }
+
+            // (Controller) Action
+            if (config('teams.show_action', false) && request() && request()->route()) {
+                $facts[] = [
+                    'name'  => 'Action',
+                    'value' => request()->route()->getActionName(),
+                ];
+            }
+
+            // Included Context
+            foreach ($record['context'] as $name => $value) {
                 $facts[] = ['name' => $name, 'value' => $value];
             }
 
-            $facts = array_merge($facts, [[
-                'name'  => 'Sent Date',
-                'value' => date('D, M d Y H:i:s e'),
-            ]]);
-
             return $this->useCardStyling($record['level_name'], $record['message'], $facts);
-        } else {
-            return $this->useSimpleStyling($record['level_name'], $record['message']);
         }
+
+        return $this->useSimpleStyling($record['level_name'], $record['message']);
     }
 
     /**
