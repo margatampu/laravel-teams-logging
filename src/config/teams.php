@@ -6,11 +6,11 @@ return [
     | Display Avatars
     |--------------------------------------------------------------------------
     |
-    | Display avatars in teams notification. When dissalowed, avatars value will
-    | not used. Allowed value: true (default) and false
+    | Display avatars in teams notification. When disallowed, avatars value will
+    | not be used. Allowed value: false (default) and true
     |
     */
-    'show_avatars' => true,
+    'show_avatars' => false,
 
     /*
     |--------------------------------------------------------------------------
