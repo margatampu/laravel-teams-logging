@@ -96,7 +96,9 @@ class LoggerHandler extends AbstractProcessingHandler
 
         // LoggerMessage $data['sections']
         $section = [
-            'activityTitle'    => $this->name,
+            'activityTitle'    => config('teams.verbose_title', false) 
+                ? strtoupper($level) . ' : ' . $this->name . ' (' . config('app.url') . ')' 
+                : $this->name,
             'activitySubtitle' => $message,
             'facts'            => $facts,
             'markdown'         => true,
