@@ -2,8 +2,9 @@
 
 namespace MargaTampu\LaravelTeamsLogging;
 
-use Monolog\Logger;
+use Monolog\Logger as MonologLogger;
 use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\LogRecord;
 
 class LoggerHandler extends AbstractProcessingHandler
 {
@@ -22,7 +23,7 @@ class LoggerHandler extends AbstractProcessingHandler
      * @param string $name
      * @param bool $bubble
      */
-    public function __construct($url, $level = MonologLogger::DEBUG, $style = 'simple', $name = 'Default', $bubble = true)
+    public function __construct($url, $level = \Monolog\Level::Debug, $style = 'simple', $name = 'Default', $bubble = true)
     {
         parent::__construct($level, $bubble);
 
@@ -32,18 +33,18 @@ class LoggerHandler extends AbstractProcessingHandler
     }
 
     /**
-     * @param array $record
+     * @param LogRecord $record
      *
      * @return LoggerMessage
      */
-    protected function getMessage(array $record)
+    protected function getMessage(LogRecord $record)
     {
         if ($this->style == 'card') {
             // Include context as facts to send to microsoft teams
             // Added Sent Date Info
 
             $facts = [];
-            foreach($record['context'] as $name => $value){
+            foreach ($record['context'] as $name => $value) {
                 $facts[] = ['name' => $name, 'value' => $value];
             }
 
@@ -110,7 +111,7 @@ class LoggerHandler extends AbstractProcessingHandler
     /**
      * @param array $record
      */
-    protected function write(array $record): void
+    protected function write(LogRecord $record): void
     {
         $json = json_encode($this->getMessage($record));
 

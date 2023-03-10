@@ -1,5 +1,5 @@
 {
-	"name": "margatampu/laravel-teams-logging",
+	"name": "easyweb/laravel-teams-logging",
 	"description": "Laravel handler to sending messages to Microsoft Teams using the Incoming Webhook connector",
 	"license": "MIT",
 	"authors": [
@@ -9,8 +9,8 @@
 		}
 	],
 	"require": {
-		"php": "^7.0|^8.0",
-		"monolog/monolog": "^1.23|^2.0"
+		"php": "^7.0|^8.0|^8.1",
+		"monolog/monolog": "^3.0"
 	},
 	"require-dev": {
 		"ext-curl": "*"
@@ -22,7 +22,9 @@
 	},
 	"extra": {
 		"laravel": {
-			"providers": [ "MargaTampu\\LaravelTeamsLogging\\LoggerServiceProvider" ]
+			"providers": [
+				"MargaTampu\\LaravelTeamsLogging\\LoggerServiceProvider"
+			]
 		}
 	}
 }

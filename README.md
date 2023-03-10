@@ -1,8 +1,5 @@
 # laravel-teams-logging
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/margatampu/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/margatampu/laravel-teams-logging)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/margatampu/laravel-teams-logging.svg?style=flat-square)](https://packagist.org/packages/margatampu/laravel-teams-logging)
 
 Laravel handler to sending messages to Microsoft Teams using the Incoming Webhook connector.
 
@@ -16,7 +13,7 @@ $ composer require margatampu/laravel-teams-logging
 
 ## Integration
 
-Package tested and worked with Laravel and Lumen framework (5.7+).
+Package tested and worked with Laravel and Lumen framework (10+).
 
 **Laravel**: After installation using composer finishes up, you'll have to add the following line to your `config/app.php`:
 
