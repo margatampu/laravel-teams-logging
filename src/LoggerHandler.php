@@ -44,8 +44,9 @@ class LoggerHandler extends AbstractProcessingHandler
             // Added Sent Date Info
 
             $facts = [];
-            foreach ($record['context'] as $name => $value) {
-                $facts[] = ['name' => $name, 'value' => $value];
+
+            foreach($record['context'] as $name => $value){
+                $facts[] = ['name' => $name, 'value' => (string) $value];
             }
 
             $facts = array_merge($facts, [[
