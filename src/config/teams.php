@@ -6,7 +6,7 @@ return [
     | Display Avatars
     |--------------------------------------------------------------------------
     |
-    | Display avatars in teams notification. When dissalowed, avatars value will
+    | Display avatars in teams notification. When disallowed, avatars value will
     | not used. Allowed value: true (default) and false
     |
     */
