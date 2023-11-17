@@ -41,7 +41,6 @@ class LoggerHandler extends AbstractProcessingHandler
     {
         if ($this->style == 'card') {
             // Include context as facts to send to microsoft teams
-            // Added Sent Date Info
 
             $facts = [];
 
@@ -49,46 +48,78 @@ class LoggerHandler extends AbstractProcessingHandler
                 $facts[] = ['name' => $name, 'value' => (string) $value];
             }
 
-            $facts = array_merge($facts, [[
+            // Date
+            $facts[] = [
                 'name'  => 'Sent Date',
                 'value' => date('D, M d Y H:i:s e'),
-            ]]);
+            ];
+
+            // Route
+            if (config('teams.show_route', false) && request()) {
+                $facts[] = [
+                    'name'  => 'Route',
+                    'value' => request()->getMethod() . ' : ' . request()->getPathInfo(),
+                ];
+            }
+
+            // (Controller) Action
+            if (config('teams.show_action', false) && request() && request()->route()) {
+                $facts[] = [
+                    'name'  => 'Action',
+                    'value' => request()->route()->getActionName(),
+                ];
+            }
+
+            // Included Context
+            foreach ($record['context'] as $name => $value) {
+                $facts[] = ['name' => $name, 'value' => $value];
+            }
 
             return $this->useCardStyling($record['level_name'], $record['message'], $facts);
-        } else {
-            return $this->useSimpleStyling($record['level_name'], $record['message']);
         }
+
+        return $this->useSimpleStyling($record['level_name'], $record['message']);
     }
 
     /**
      * Styling message as simple message
      *
-     * @param String $name
+     * @param String $level
      * @param String $message
      * @param array  $facts
      */
-    public function useCardStyling($name, $message, $facts)
+    public function useCardStyling($level, $message, $facts)
     {
-        $loggerColour = new LoggerColour($name);
+        $loggerColour = new LoggerColour($level);
 
-        $loggerMessage = new LoggerMessage([
-            'summary'    => $name . ($this->name ? ': ' . $this->name : ''),
+        // LoggerMessage $data
+        $loggerMessageData = [
+            'summary'    => $level . ($this->name ? ': ' . $this->name : ''),
             'themeColor' => (string) $loggerColour,
-            'sections'   => [
-                array_merge(config('teams.show_avatars', true) ? [
-                    'activityTitle'    => $this->name,
-                    'activitySubtitle' => $message,
-                    'activityImage'    => (string) new LoggerAvatar($name),
-                    'facts'            => $facts,
-                    'markdown'         => true
-                ] : [
-                    'activityTitle'    => $this->name,
-                    'activitySubtitle' => $message,
-                    'facts'            => $facts,
-                    'markdown'         => true
-                ], config('teams.show_type', true) ? ['activitySubtitle' => '<span style="color:#' . (string) $loggerColour . '">' . $message . '</span>',] : [])
-            ]
-        ]);
+            'sections'   => [],
+        ];
+
+        // LoggerMessage $data['sections']
+        $section = [
+            'activityTitle'    => config('teams.verbose_title', false) 
+                ? strtoupper($level) . ' : ' . $this->name . ' (' . config('app.url') . ')' 
+                : $this->name,
+            'activitySubtitle' => $message,
+            'facts'            => $facts,
+            'markdown'         => true,
+        ];
+
+        if (config('teams.show_avatars', true)) {
+            $section['activityImage'] = (string) new LoggerAvatar($level);
+        }
+
+        if (config('teams.show_type', true)) {
+            $section['activitySubtitle'] = '<span style="color:#' . (string) $loggerColour . '">' . $message . '</span>';
+        }
+
+        $loggerMessageData['sections'][] = $section;
+
+        $loggerMessage = new LoggerMessage($loggerMessageData);
 
         return $loggerMessage->jsonSerialize();
     }
@@ -96,15 +127,15 @@ class LoggerHandler extends AbstractProcessingHandler
     /**
      * Styling message as simple message
      *
-     * @param String $name
+     * @param String $level
      * @param String $message
      */
-    public function useSimpleStyling($name, $message)
+    public function useSimpleStyling($level, $message)
     {
-        $loggerColour = new LoggerColour($name);
+        $loggerColour = new LoggerColour($level);
 
         return new LoggerMessage([
-            'text'       => ($this->name ? $this->name . ' - ' : '') . '<span style="color:#' . (string) $loggerColour . '">' . $name . '</span>: ' . $message,
+            'text'       => ($this->name ? $this->name . ' - ' : '') . '<span style="color:#' . (string) $loggerColour . '">' . $level . '</span>: ' . $message,
             'themeColor' => (string) $loggerColour,
         ]);
     }
@@ -124,7 +155,7 @@ class LoggerHandler extends AbstractProcessingHandler
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json',
-            'Content-Length: ' . strlen($json)
+            'Content-Length: ' . strlen($json),
         ]);
 
         curl_exec($ch);

@@ -10,7 +10,7 @@ return [
     | not used. Allowed value: true (default) and false
     |
     */
-    'show_avatars' => true,
+    'show_avatars' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -21,6 +21,37 @@ return [
     |
     */
     'show_type' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display Route 
+    |--------------------------------------------------------------------------
+    |
+    | Display route (if available) called which led to the logged notification. Allowed value: false (default) and true
+    |
+    */
+    'show_route' => false,
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display Action (Controller@Method) 
+    |--------------------------------------------------------------------------
+    |
+    | Display controller and method (if available) that led to the logged notification. Allowed value: false (default) and true
+    |
+    */
+    'show_action' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Enhanced Title Info
+    |--------------------------------------------------------------------------
+    |
+    | Add the error type and app.url in the notification title. Allowed value: false (default) and true
+    |
+    */
+    'verbose_title' => false,
 
     /*
     |--------------------------------------------------------------------------
