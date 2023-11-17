@@ -141,7 +141,7 @@ class LoggerHandler extends AbstractProcessingHandler
     }
 
     /**
-     * @param array $record
+     * @param LogRecord $record
      */
     protected function write(LogRecord $record): void
     {
