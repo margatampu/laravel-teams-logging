@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Display avatars in teams notification. When disallowed, avatars value will
-    | not used. Allowed value: true (default) and false
+    | not be used. Allowed value: true (default) and false
     |
     */
     'show_avatars' => false,
@@ -42,6 +42,16 @@ return [
     |
     */
     'show_action' => false,
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Display User 
+    |--------------------------------------------------------------------------
+    |
+    | Display authenticated user (if available) for whom the log was triggered. Allowed value: false (default) and true
+    |
+    */
+    'show_user' => false,
 
     /*
     |--------------------------------------------------------------------------
