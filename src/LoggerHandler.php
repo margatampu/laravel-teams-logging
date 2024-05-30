@@ -40,13 +40,7 @@ class LoggerHandler extends AbstractProcessingHandler
     protected function getMessage(LogRecord $record)
     {
         if ($this->style == 'card') {
-            // Include context as facts to send to microsoft teams
-
             $facts = [];
-
-            foreach($record['context'] as $name => $value){
-                $facts[] = ['name' => $name, 'value' => (string) $value];
-            }
 
             // Date
             if (config('teams.show_date', true)) {
