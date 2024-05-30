@@ -66,6 +66,14 @@ class LoggerHandler extends AbstractProcessingHandler
                 ];
             }
 
+            // Logged-In User
+            if (config('teams.show_user', false) && auth()->check()) {
+                $facts[] = [
+                    'name'  => 'User',
+                    'value' => auth()->user()->name . ' (' . auth()->user()->email . ')',
+                ];
+            }
+            
             // Included Context
             foreach ($record['context'] as $name => $value) {
                 $facts[] = ['name' => $name, 'value' => $value];
