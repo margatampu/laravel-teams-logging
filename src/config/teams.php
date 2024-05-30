@@ -24,14 +24,34 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Display Route 
+    | Display Date
+    |--------------------------------------------------------------------------
+    |
+    | Display the date of the logged notification. Allowed value: false (default) and true
+    |
+    */
+    'show_date' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display Date Format
+    |--------------------------------------------------------------------------
+    |
+    | The format of the date of the logged notification. Allowed value: Any format accepted by
+    | DateTimeInterface::format() (). Default: 'D, M d Y H:i:s e'
+    |
+    */
+    'date_format' => 'D, M d Y H:i:s e',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display Route
     |--------------------------------------------------------------------------
     |
     | Display route (if available) called which led to the logged notification. Allowed value: false (default) and true
     |
     */
     'show_route' => false,
-
 
     /*
     |--------------------------------------------------------------------------

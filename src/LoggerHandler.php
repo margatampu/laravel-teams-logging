@@ -49,10 +49,12 @@ class LoggerHandler extends AbstractProcessingHandler
             }
 
             // Date
-            $facts[] = [
-                'name'  => 'Sent Date',
-                'value' => date('D, M d Y H:i:s e'),
-            ];
+            if (config('teams.show_date', true)) {
+                $facts[] = [
+                    'name' => 'Sent Date',
+                    'value' => date(config('teams.date_format', 'D, M d Y H:i:s e')),
+                ];
+            }
 
             // Route
             if (config('teams.show_route', false) && request()) {
@@ -101,8 +103,8 @@ class LoggerHandler extends AbstractProcessingHandler
 
         // LoggerMessage $data['sections']
         $section = [
-            'activityTitle'    => config('teams.verbose_title', false) 
-                ? strtoupper($level) . ' : ' . $this->name . ' (' . config('app.url') . ')' 
+            'activityTitle'    => config('teams.verbose_title', false)
+                ? strtoupper($level) . ' : ' . $this->name . ' (' . config('app.url') . ')'
                 : $this->name,
             'activitySubtitle' => $message,
             'facts'            => $facts,
